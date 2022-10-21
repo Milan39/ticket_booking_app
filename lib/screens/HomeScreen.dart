@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:ticket_booking/main.dart';
 import 'package:ticket_booking/screens/HomeScreen%20comp/Ticket_card.dart';
 import 'package:ticket_booking/utils/Colors/Colors.dart';
 import 'package:ticket_booking/screens/HomeScreen%20comp/Firstpart.dart';
@@ -33,9 +34,39 @@ class HomeScreen extends StatelessWidget {
 
                 //ticket Card
                 Gap(15),
-                MyTicketCard(),
-                
-                  
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  // padding: EdgeInsets.only(right: 16),
+                  child: Row(
+                    children: [
+                      MyTicketCard(
+                        From: 'NYC',
+                        to: 'LDN',
+                        TimeDistance: '8H 30M',
+                        from_fullForm: 'New_York',
+                        to_fullFrom: 'London',
+                        Date: '1 May',
+                        Time: '08: 00 AM',
+                        Number: '23', 
+                        LowerPartColor: Styles.orangeColor, 
+                        upperPartColor: Styles.blueColor,
+                      ),
+
+                      MyTicketCard(
+                        From: 'IND',
+                        to: 'NEP',
+                        TimeDistance: '1H 30M',
+                        from_fullForm: 'India',
+                        to_fullFrom: 'Nepal',
+                        Date: '3 May',
+                        Time: '05: 00 AM',
+                        Number: '25',
+                        LowerPartColor: Styles.LightBlue,
+                        upperPartColor: Styles.LipStickColor,
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
           ],

@@ -1,45 +1,67 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:gap/gap.dart';
 import 'package:ticket_booking/utils/Colors/Colors.dart';
 import 'package:ticket_booking/utils/app_Layout.dart';
 import 'package:ticket_booking/widgets/Container.dart';
 
-class MyTicketCard extends StatefulWidget {
-  const MyTicketCard({super.key});
+class MyTicketCard extends StatelessWidget {
+  final String From;
+  final String to;
+  final String from_fullForm;
+  final String TimeDistance;
+  final String to_fullFrom;
+  final String Date;
+  final String Time;
+  final String Number;
+  final Color upperPartColor;
+  final Color LowerPartColor;
 
-  @override
-  State<MyTicketCard> createState() => _MyTicketCardState();
-}
+  const MyTicketCard(
+      {super.key,
+      required this.From,
+      required this.to,
+      required this.from_fullForm,
+      required this.TimeDistance,
+      required this.to_fullFrom,
+      required this.Date,
+      required this.Time,
+      required this.Number,
+      required this.upperPartColor,
+      required this.LowerPartColor});
 
-class _MyTicketCardState extends State<MyTicketCard> {
   @override
   Widget build(BuildContext context) {
     final size = AppLayout.getSize(context);
     return SizedBox(
-      width: size.width,
+      width: size.width * 0.85,
       height: 200,
       // container 0
       child: Container(
+        margin: EdgeInsets.only(right: 16),
         child: Column(
           children: [
-            // container 1 
+            /*
+              showing the blue part of the ticket
+             */
             Container(
-              padding: EdgeInsets.all(16),
+              padding:
+                  EdgeInsets.only(left: 16, right: 16, bottom: 16, top: 10),
               decoration: BoxDecoration(
-                  color: Color(0xFF526799),
+                  color: upperPartColor,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(15),
                       topRight: Radius.circular(15))),
               child: Column(
                 children: [
+                  /**
+                   * first part of the blue card 
+                   */
                   Row(
                     children: [
                       Text(
-                        'NYC',
+                        From,
                         style:
                             Styles.headLineStyle3.copyWith(color: Colors.white),
                       ),
@@ -63,27 +85,161 @@ class _MyTicketCardState extends State<MyTicketCard> {
                       MyContiner(),
                       Spacer(),
                       Text(
-                        'LDN',
+                        to,
                         style:
                             Styles.headLineStyle3.copyWith(color: Colors.white),
                       )
                     ],
                   ),
-                  // second part
+                  // second part of blue card
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'New-York',
+                        from_fullForm,
                         style:
                             Styles.headLineStyle3.copyWith(color: Colors.white),
                       ),
-                      Text('8H 30M',
+                      Text( TimeDistance,
                           style: Styles.headLineStyle3
                               .copyWith(color: Colors.white)),
-                      Text('London',
+                      Text(to_fullFrom,
                           style: Styles.headLineStyle3
                               .copyWith(color: Colors.white))
+                    ],
+                  )
+                ],
+              ),
+            ),
+            /**
+             * showing the orange part of the ticket
+             */
+            Container(
+              color: LowerPartColor,
+              child: Row(
+                // ignore: prefer_const_literals_to_create_immutables
+                children: [
+                  // first half circel
+                  SizedBox(
+                    height: 20,
+                    width: 10,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(10),
+                              bottomRight: Radius.circular(10))),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+                      child: LayoutBuilder(builder:
+                          (BuildContext context, BoxConstraints constraints) {
+                        return Flex(
+                          direction: Axis.horizontal,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisSize: MainAxisSize.max,
+                          children: List.generate(
+                            (constraints.constrainWidth() / 15).floor(),
+                            (index) => SizedBox(
+                              height: 1,
+                              width: 5,
+                              child: DecoratedBox(
+                                decoration: BoxDecoration(color: Colors.white),
+                              ),
+                            ),
+                          ),
+                        );
+                      }),
+                    ),
+                  ),
+
+                  // second half circle
+                  SizedBox(
+                    height: 20,
+                    width: 10,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              bottomLeft: Radius.circular(10))),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            /**
+             * Bottom part of the orange ticket
+             */
+            Container(
+              padding:
+                  EdgeInsets.only(top: 10, bottom: 16, left: 16, right: 16),
+              decoration: BoxDecoration(
+                color: LowerPartColor,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(15),
+                  bottomRight: Radius.circular(15),
+                ),
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      // first column
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            Date,
+                            style: Styles.headLineStyle3
+                                .copyWith(color: Colors.white),
+                          ),
+                          const Gap(4),
+                          Text(
+                            'Date',
+                            style: Styles.headLineStyle3
+                                .copyWith(color: Colors.white),
+                          )
+                        ],
+                      ),
+                      // second column
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            Time,
+                            style: Styles.headLineStyle3
+                                .copyWith(color: Colors.white),
+                          ),
+                          const Gap(4),
+                          Text(
+                            'Departure time',
+                            style: Styles.headLineStyle3
+                                .copyWith(color: Colors.white),
+                          )
+                        ],
+                      ),
+                      // third column
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            Number,
+                            style: Styles.headLineStyle3
+                                .copyWith(color: Colors.white),
+                          ),
+                          const Gap(4),
+                          Text(
+                            'Number',
+                            style: Styles.headLineStyle3
+                                .copyWith(color: Colors.white),
+                          )
+                        ],
+                      ),
                     ],
                   )
                 ],
@@ -95,3 +251,4 @@ class _MyTicketCardState extends State<MyTicketCard> {
     );
   }
 }
+
