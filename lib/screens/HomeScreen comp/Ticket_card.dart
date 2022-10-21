@@ -26,7 +26,7 @@ class _MyTicketCardState extends State<MyTicketCard> {
       child: Container(
         child: Column(
           children: [
-            // container 1
+            // container 1 
             Container(
               padding: EdgeInsets.all(16),
               decoration: BoxDecoration(
