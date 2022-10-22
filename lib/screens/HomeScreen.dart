@@ -21,7 +21,10 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Styles.bgColor,
       body: Padding(
-        padding: const EdgeInsets.only(left: 20, right: 20),
+        padding: EdgeInsets.only(
+          left: AppLayout.getHeight(20),
+          right: AppLayout.getHeight(20),
+        ),
         child: ListView(
           children: [
             Column(
@@ -68,8 +71,9 @@ class HomeScreen extends StatelessWidget {
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: hotel_info.map((hotel) => Hotel(hotel: hotel)).toList()
-                  ),
+                      children: hotel_info
+                          .map((hotel) => Hotel(hotel: hotel))
+                          .toList()),
                 )
               ],
             ),
