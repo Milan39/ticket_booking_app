@@ -8,6 +8,7 @@ import 'package:ticket_booking/utils/Colors/Colors.dart';
 import 'package:ticket_booking/screens/HomeScreen%20comp/Firstpart.dart';
 import 'package:ticket_booking/screens/HomeScreen%20comp/thirdPart.dart';
 import 'package:ticket_booking/utils/Data/hotel_info.dart';
+import 'package:ticket_booking/widgets/double_text.dart';
 
 import '../utils/Data/Ticket_Data.dart';
 import '../utils/app_Layout.dart';
@@ -43,7 +44,10 @@ class HomeScreen extends StatelessWidget {
                 /**
                 * Third row of the home page
                 */
-                ThirdPart(),
+                Double_Text_Widgets(
+                  bigText: "Upcomming Flights",
+                  smallText: 'View all',
+                ),
 
                 /**
                  * Tickets cards UI
