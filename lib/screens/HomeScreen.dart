@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:ticket_booking/main.dart';
 import 'package:ticket_booking/screens/HomeScreen%20comp/Hotel_Container.dart';
 import 'package:ticket_booking/screens/HomeScreen%20comp/Ticket_card.dart';
 import 'package:ticket_booking/screens/HomeScreen%20comp/fifthpart.dart';
@@ -11,6 +10,7 @@ import 'package:ticket_booking/screens/HomeScreen%20comp/thirdPart.dart';
 import 'package:ticket_booking/utils/Data/hotel_info.dart';
 
 import '../utils/Data/Ticket_Data.dart';
+import '../utils/app_Layout.dart';
 import 'HomeScreen comp/searchBar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -26,17 +26,17 @@ class HomeScreen extends StatelessWidget {
           children: [
             Column(
               children: [
-                Gap(40),
+                Gap(AppLayout.getHeight(40)),
                 /**
                  * First Row of the home page
                  */
                 FirstPartOfHomePage(),
-                Gap(20),
+                Gap(AppLayout.getHeight(20)),
                 /**
                * Search Bar of the home page
                */
                 SearchBar(),
-                Gap(40),
+                Gap(AppLayout.getHeight(40)),
                 /**
                 * Third row of the home page
                 */
@@ -45,7 +45,7 @@ class HomeScreen extends StatelessWidget {
                 /**
                  * Tickets cards UI
                  */
-                Gap(15),
+                Gap(AppLayout.getHeight(15)),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   // padding: EdgeInsets.only(right: 16),
@@ -59,7 +59,7 @@ class HomeScreen extends StatelessWidget {
                 /**
                  * Fifth row of the home page
                  */
-                Gap(20),
+                Gap(AppLayout.getHeight(20)),
                 FifthPart(),
 
                 /**

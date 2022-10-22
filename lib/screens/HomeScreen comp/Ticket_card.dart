@@ -7,7 +7,7 @@ import 'package:ticket_booking/utils/app_Layout.dart';
 import 'package:ticket_booking/widgets/Container.dart';
 
 class MyTicketCard extends StatelessWidget {
-  final Map<String, dynamic>ticket;
+  final Map<String, dynamic> ticket;
 
   const MyTicketCard({super.key, required this.ticket});
 
@@ -16,23 +16,27 @@ class MyTicketCard extends StatelessWidget {
     final size = AppLayout.getSize(context);
     return SizedBox(
       width: size.width * 0.85,
-      height: 200,
+      height: AppLayout.getHeight(200),
       // container 0
       child: Container(
-        margin: EdgeInsets.only(right: 16),
+        margin: EdgeInsets.only(right: AppLayout.getHeight(16)),
         child: Column(
           children: [
             /*
               showing the blue part of the ticket
              */
             Container(
-              padding:
-                  EdgeInsets.only(left: 16, right: 16, bottom: 16, top: 10),
+              padding: EdgeInsets.only(
+                left: AppLayout.getHeight(16),
+                right: AppLayout.getHeight(16),
+                bottom: AppLayout.getWidth(16),
+                top: AppLayout.getWidth(10),
+              ),
               decoration: BoxDecoration(
                   color: ticket['upperColor'],
                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(15),
-                      topRight: Radius.circular(15))),
+                      topLeft: Radius.circular(AppLayout.getHeight(15)),
+                      topRight: Radius.circular(AppLayout.getHeight(15)))),
               child: Column(
                 children: [
                   /**
@@ -41,7 +45,7 @@ class MyTicketCard extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        ticket['From'],
+                        ticket['From']['code'],
                         style:
                             Styles.headLineStyle3.copyWith(color: Colors.white),
                       ),
@@ -55,7 +59,7 @@ class MyTicketCard extends StatelessWidget {
                           Image.asset(
                             'assets/Images/airplane.png',
                             color: Colors.white,
-                            height: 50,
+                            height: AppLayout.getHeight(50),
                           ),
                           Text(' - -',
                               style: Styles.headLineStyle3
@@ -65,7 +69,7 @@ class MyTicketCard extends StatelessWidget {
                       MyContiner(),
                       Spacer(),
                       Text(
-                        ticket['To'],
+                        ticket['To']['code'],
                         style:
                             Styles.headLineStyle3.copyWith(color: Colors.white),
                       )
@@ -76,14 +80,14 @@ class MyTicketCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        ticket['From_fullForm'],
+                        ticket['From']['name'],
                         style:
                             Styles.headLineStyle3.copyWith(color: Colors.white),
                       ),
-                      Text( ticket['travel_time'],
+                      Text(ticket['travel_time'],
                           style: Styles.headLineStyle3
                               .copyWith(color: Colors.white)),
-                      Text(ticket['To_fulForm'],
+                      Text(ticket['To']['name'],
                           style: Styles.headLineStyle3
                               .copyWith(color: Colors.white))
                     ],
@@ -101,19 +105,22 @@ class MyTicketCard extends StatelessWidget {
                 children: [
                   // first half circel
                   SizedBox(
-                    height: 20,
-                    width: 10,
+                    height: AppLayout.getHeight(20),
+                    width: AppLayout.getWidth(10),
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(10),
-                              bottomRight: Radius.circular(10))),
+                              topRight: Radius.circular(AppLayout.getWidth(10)),
+                              bottomRight:
+                                  Radius.circular(AppLayout.getWidth(10)))),
                     ),
                   ),
                   Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+                      padding: EdgeInsets.only(
+                          left: AppLayout.getHeight(12.0),
+                          right: AppLayout.getHeight(12.0)),
                       child: LayoutBuilder(builder:
                           (BuildContext context, BoxConstraints constraints) {
                         return Flex(
@@ -123,8 +130,8 @@ class MyTicketCard extends StatelessWidget {
                           children: List.generate(
                             (constraints.constrainWidth() / 15).floor(),
                             (index) => SizedBox(
-                              height: 1,
-                              width: 5,
+                              height: AppLayout.getHeight(1),
+                              width: AppLayout.getWidth(5),
                               child: DecoratedBox(
                                 decoration: BoxDecoration(color: Colors.white),
                               ),
@@ -137,14 +144,15 @@ class MyTicketCard extends StatelessWidget {
 
                   // second half circle
                   SizedBox(
-                    height: 20,
-                    width: 10,
+                    height: AppLayout.getHeight(20),
+                    width: AppLayout.getWidth(10),
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              bottomLeft: Radius.circular(10))),
+                              topLeft: Radius.circular(AppLayout.getWidth(10)),
+                              bottomLeft:
+                                  Radius.circular(AppLayout.getWidth(10)))),
                     ),
                   ),
                 ],
@@ -155,13 +163,17 @@ class MyTicketCard extends StatelessWidget {
              * Bottom part of the orange ticket
              */
             Container(
-              padding:
-                  EdgeInsets.only(top: 10, bottom: 16, left: 16, right: 16),
+             padding: EdgeInsets.only(
+                left: AppLayout.getHeight(16),
+                right: AppLayout.getHeight(16),
+                bottom: AppLayout.getWidth(16),
+                top: AppLayout.getWidth(10),
+              ),
               decoration: BoxDecoration(
                 color: ticket['LowerColor'],
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(15),
-                  bottomRight: Radius.circular(15),
+                  bottomLeft: Radius.circular(AppLayout.getWidth(15)),
+                  bottomRight: Radius.circular(AppLayout.getWidth(15)),
                 ),
               ),
               child: Column(
@@ -178,7 +190,7 @@ class MyTicketCard extends StatelessWidget {
                             style: Styles.headLineStyle3
                                 .copyWith(color: Colors.white),
                           ),
-                          const Gap(4),
+                           Gap(AppLayout.getHeight(4)),
                           Text(
                             'Date',
                             style: Styles.headLineStyle3
@@ -195,7 +207,7 @@ class MyTicketCard extends StatelessWidget {
                             style: Styles.headLineStyle3
                                 .copyWith(color: Colors.white),
                           ),
-                          const Gap(4),
+                           Gap(AppLayout.getHeight(4)),
                           Text(
                             'Departure time',
                             style: Styles.headLineStyle3
@@ -212,7 +224,7 @@ class MyTicketCard extends StatelessWidget {
                             style: Styles.headLineStyle3
                                 .copyWith(color: Colors.white),
                           ),
-                          const Gap(4),
+                           Gap(AppLayout.getHeight(4)),
                           Text(
                             'Number',
                             style: Styles.headLineStyle3
@@ -231,4 +243,3 @@ class MyTicketCard extends StatelessWidget {
     );
   }
 }
-

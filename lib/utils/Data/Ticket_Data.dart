@@ -1,24 +1,32 @@
 import '../Colors/Colors.dart';
 
-List<Map<String, dynamic>> ticket_info =[
+List<Map<String, dynamic>> ticket_info = [
   {
-    'From': 'NYC',
-    'To': 'LDN',
-    'From_fullForm': 'New-York',
-     'travel_time': '8h 30M',
-    'To_fulForm': 'London',
+    'From': {
+      'code': 'NYC',
+      'name': 'New-York',
+    },
+    'To': {
+      'code': 'LDN',
+      'name': 'London',
+    },
+    'travel_time': '8h 30M',
     'Date': '1 May',
     'time': '08: 00 AM',
     'Number': '23',
     'LowerColor': Styles.orangeColor,
     'upperColor': Styles.blueColor,
   },
-   {
-    'From': 'IND',
-    'To': 'NEP',
-    'From_fullForm': 'India',
+  {
+    'From': {
+      'code': 'IND',
+      'name': 'India',
+    },
+    'To': {
+      'code': 'NEP',
+      'name': 'Nepal',
+    },
     'travel_time': '1h 30M',
-    'To_fulForm': 'Nepal',
     'Date': '10 May',
     'time': '09: 00 AM',
     'Number': '30',
