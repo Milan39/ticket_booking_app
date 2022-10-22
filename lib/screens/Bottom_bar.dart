@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:gap/gap.dart';
 import 'package:ticket_booking/screens/HomeScreen.dart';
+import 'package:ticket_booking/screens/SearchScreen.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -16,7 +16,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   final List<Widget> _widgetOption = <Widget>[
     HomeScreen(),
-    const Text('Search Page'),
+    SearchScreen(),
     const Text('Ticket page'),
     const Text('Profile page')
   ];
