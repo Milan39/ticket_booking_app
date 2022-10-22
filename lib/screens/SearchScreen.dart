@@ -47,21 +47,40 @@ class SearchScreen extends StatelessWidget {
               )
             ],
           ),
+          Gap(AppLayout.getHeight(20)),
 
           /**
            * Third part of the search page
            */
-          Gap(AppLayout.getHeight(20)),
           Column(
             children: [
               Third_part_SearchScreen(
-                ImagePath: 'assets/Images/departure.png',
+                Icons: Icons.flight_takeoff_rounded,
                 name: 'Departure',
               ),
               Gap(AppLayout.getHeight(20)),
               Third_part_SearchScreen(
-                ImagePath: 'assets/Images/arrival.png',
+                Icons: Icons.flight_land_rounded,
                 name: 'Arrival',
+              ),
+              Gap(AppLayout.getHeight(20)),
+              /**
+             * Find Tickets
+             */
+              Container(
+                width: Size.width * 0.85,
+                padding: EdgeInsets.symmetric(
+                    vertical: AppLayout.getHeight(10),
+                    horizontal: AppLayout.getWidth(10)),
+                decoration: BoxDecoration(
+                    color: Color(0xFF0057D9),
+                    borderRadius: BorderRadius.circular(10)),
+                child: Center(
+                  child: Text(
+                    'Find Tickets',
+                    style: Styles.headLineStyle3.copyWith(color: Colors.white),
+                  ),
+                ),
               )
             ],
           )

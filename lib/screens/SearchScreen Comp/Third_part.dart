@@ -4,11 +4,11 @@ import '../../utils/Colors/Colors.dart';
 import '../../utils/app_Layout.dart';
 
 class Third_part_SearchScreen extends StatelessWidget {
-  final String ImagePath;
+  final IconData Icons;
   final String name;
   const Third_part_SearchScreen({
     super.key,
-    required this.ImagePath,
+    required this.Icons,
     required this.name,
   });
 
@@ -21,17 +21,13 @@ class Third_part_SearchScreen extends StatelessWidget {
           vertical: AppLayout.getHeight(10),
           horizontal: AppLayout.getWidth(10)),
       decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(10)),
+          color: Colors.white, borderRadius: BorderRadius.circular(AppLayout.getHeight(10))),
       child: Row(
         children: [
-          Container(
-              height: AppLayout.getHeight(30),
-              width: AppLayout.getHeight(30),
-              child: Image.asset(
-                ImagePath,
-                fit: BoxFit.cover,
-                color: Colors.grey[400],
-              )),
+          Icon(
+            Icons,
+            color: Colors.grey.shade400,
+          ),
           Gap(AppLayout.getHeight(20)),
           Text(
             name,
