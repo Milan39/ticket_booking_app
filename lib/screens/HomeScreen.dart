@@ -2,11 +2,15 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:ticket_booking/main.dart';
+import 'package:ticket_booking/screens/HomeScreen%20comp/Hotel_Container.dart';
 import 'package:ticket_booking/screens/HomeScreen%20comp/Ticket_card.dart';
+import 'package:ticket_booking/screens/HomeScreen%20comp/fifthpart.dart';
 import 'package:ticket_booking/utils/Colors/Colors.dart';
 import 'package:ticket_booking/screens/HomeScreen%20comp/Firstpart.dart';
 import 'package:ticket_booking/screens/HomeScreen%20comp/thirdPart.dart';
+import 'package:ticket_booking/utils/Data/hotel_info.dart';
 
+import '../utils/Data/Ticket_Data.dart';
 import 'HomeScreen comp/searchBar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -23,48 +27,48 @@ class HomeScreen extends StatelessWidget {
             Column(
               children: [
                 Gap(40),
-                // first row of the home page
+                /**
+                 * First Row of the home page
+                 */
                 FirstPartOfHomePage(),
                 Gap(20),
-                // search bar of the home page
+                /**
+               * Search Bar of the home page
+               */
                 SearchBar(),
                 Gap(40),
-                // third part of the home page
+                /**
+                * Third row of the home page
+                */
                 ThirdPart(),
 
-                //ticket Card
+                /**
+                 * Tickets cards UI
+                 */
                 Gap(15),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   // padding: EdgeInsets.only(right: 16),
                   child: Row(
-                    children: [
-                      MyTicketCard(
-                        From: 'NYC',
-                        to: 'LDN',
-                        TimeDistance: '8H 30M',
-                        from_fullForm: 'New_York',
-                        to_fullFrom: 'London',
-                        Date: '1 May',
-                        Time: '08: 00 AM',
-                        Number: '23', 
-                        LowerPartColor: Styles.orangeColor, 
-                        upperPartColor: Styles.blueColor,
-                      ),
+                    children: ticket_info
+                        .map((Ticket) => MyTicketCard(ticket: Ticket))
+                        .toList(),
+                  ),
+                ),
 
-                      MyTicketCard(
-                        From: 'IND',
-                        to: 'NEP',
-                        TimeDistance: '1H 30M',
-                        from_fullForm: 'India',
-                        to_fullFrom: 'Nepal',
-                        Date: '3 May',
-                        Time: '05: 00 AM',
-                        Number: '25',
-                        LowerPartColor: Styles.LightBlue,
-                        upperPartColor: Styles.LipStickColor,
-                      ),
-                    ],
+                /**
+                 * Fifth row of the home page
+                 */
+                Gap(20),
+                FifthPart(),
+
+                /**
+                 * Hotel Information part 
+                 */
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: hotel_info.map((hotel) => Hotel(hotel: hotel)).toList()
                   ),
                 )
               ],

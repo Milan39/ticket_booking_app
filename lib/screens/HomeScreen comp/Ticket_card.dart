@@ -7,29 +7,9 @@ import 'package:ticket_booking/utils/app_Layout.dart';
 import 'package:ticket_booking/widgets/Container.dart';
 
 class MyTicketCard extends StatelessWidget {
-  final String From;
-  final String to;
-  final String from_fullForm;
-  final String TimeDistance;
-  final String to_fullFrom;
-  final String Date;
-  final String Time;
-  final String Number;
-  final Color upperPartColor;
-  final Color LowerPartColor;
+  final Map<String, dynamic>ticket;
 
-  const MyTicketCard(
-      {super.key,
-      required this.From,
-      required this.to,
-      required this.from_fullForm,
-      required this.TimeDistance,
-      required this.to_fullFrom,
-      required this.Date,
-      required this.Time,
-      required this.Number,
-      required this.upperPartColor,
-      required this.LowerPartColor});
+  const MyTicketCard({super.key, required this.ticket});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +29,7 @@ class MyTicketCard extends StatelessWidget {
               padding:
                   EdgeInsets.only(left: 16, right: 16, bottom: 16, top: 10),
               decoration: BoxDecoration(
-                  color: upperPartColor,
+                  color: ticket['upperColor'],
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(15),
                       topRight: Radius.circular(15))),
@@ -61,7 +41,7 @@ class MyTicketCard extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        From,
+                        ticket['From'],
                         style:
                             Styles.headLineStyle3.copyWith(color: Colors.white),
                       ),
@@ -85,7 +65,7 @@ class MyTicketCard extends StatelessWidget {
                       MyContiner(),
                       Spacer(),
                       Text(
-                        to,
+                        ticket['To'],
                         style:
                             Styles.headLineStyle3.copyWith(color: Colors.white),
                       )
@@ -96,14 +76,14 @@ class MyTicketCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        from_fullForm,
+                        ticket['From_fullForm'],
                         style:
                             Styles.headLineStyle3.copyWith(color: Colors.white),
                       ),
-                      Text( TimeDistance,
+                      Text( ticket['travel_time'],
                           style: Styles.headLineStyle3
                               .copyWith(color: Colors.white)),
-                      Text(to_fullFrom,
+                      Text(ticket['To_fulForm'],
                           style: Styles.headLineStyle3
                               .copyWith(color: Colors.white))
                     ],
@@ -115,7 +95,7 @@ class MyTicketCard extends StatelessWidget {
              * showing the orange part of the ticket
              */
             Container(
-              color: LowerPartColor,
+              color: ticket['LowerColor'],
               child: Row(
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
@@ -178,7 +158,7 @@ class MyTicketCard extends StatelessWidget {
               padding:
                   EdgeInsets.only(top: 10, bottom: 16, left: 16, right: 16),
               decoration: BoxDecoration(
-                color: LowerPartColor,
+                color: ticket['LowerColor'],
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(15),
                   bottomRight: Radius.circular(15),
@@ -194,7 +174,7 @@ class MyTicketCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            Date,
+                            ticket['Date'],
                             style: Styles.headLineStyle3
                                 .copyWith(color: Colors.white),
                           ),
@@ -211,7 +191,7 @@ class MyTicketCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                            Time,
+                            ticket['time'],
                             style: Styles.headLineStyle3
                                 .copyWith(color: Colors.white),
                           ),
@@ -228,7 +208,7 @@ class MyTicketCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
-                            Number,
+                            ticket['Number'],
                             style: Styles.headLineStyle3
                                 .copyWith(color: Colors.white),
                           ),

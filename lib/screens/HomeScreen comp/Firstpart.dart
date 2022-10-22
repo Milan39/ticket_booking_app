@@ -24,7 +24,7 @@ class FirstPartOfHomePage extends StatelessWidget {
             ),
             Text(
               'Book Tickets',
-              style: Styles.headLineStyle,
+              style: Styles.headLineStyle1,
             ),
           ],
         ),
@@ -35,7 +35,7 @@ class FirstPartOfHomePage extends StatelessWidget {
             color: Colors.white,
             borderRadius: BorderRadius.circular(10),
           ),
-          child: Center(child: Image.asset('assets/Images/img1.png',height: 55,width: 55,)),
+          child: Center(child: Image.asset('assets/Images/logo.png',height: 55,width: 55,)),
         )
       ],
     );

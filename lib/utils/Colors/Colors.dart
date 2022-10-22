@@ -11,8 +11,9 @@ class Styles{
   static Color orangeColor = const Color(0xFFF37B67);
   static Color LightBlue = const Color(0xFF738FEA);
   static Color LipStickColor = const Color(0xFFEA738F);
+  static Color LightGrey = const Color(0xFFD3D3D3);
   static TextStyle textstyle = TextStyle(fontSize: 16, color: textColor, fontWeight: FontWeight.w500);
-  static TextStyle headLineStyle = TextStyle(fontSize: 26, color: textColor, fontWeight: FontWeight.bold);
+  static TextStyle headLineStyle1 = TextStyle(fontSize: 26, color: textColor, fontWeight: FontWeight.bold);
   static TextStyle headLineStyle2 =TextStyle(fontSize: 21, color: textColor, fontWeight: FontWeight.bold);
   static TextStyle headLineStyle3 = TextStyle(fontSize: 17, color: Colors.grey.shade500, fontWeight: FontWeight.w500);
   static TextStyle headLineStyle4 =TextStyle(fontSize: 15, color: Colors.grey.shade500, fontWeight: FontWeight.bold);
