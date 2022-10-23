@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../utils/Colors/Colors.dart';
-import '../utils/app_Layout.dart';
+import '../../utils/Colors/Colors.dart';
+import '../../utils/app_Layout.dart';
 
 class RemaningColumn extends StatelessWidget {
   final String BigText1;

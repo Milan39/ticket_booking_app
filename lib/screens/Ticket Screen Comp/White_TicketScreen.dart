@@ -6,7 +6,7 @@ import 'package:gap/gap.dart';
 
 import '../../utils/Colors/Colors.dart';
 import '../../utils/app_Layout.dart';
-import '../../widgets/Column_TicketScreen.dart';
+import 'Column_TicketScreen.dart';
 import 'barcode.dart';
 
 class White_TicketScreen extends StatelessWidget {

@@ -9,8 +9,8 @@ import 'package:barcode_widget/barcode_widget.dart';
 import 'package:ticket_booking/utils/app_Layout.dart';
 import 'package:ticket_booking/widgets/Container.dart';
 
-import '../../widgets/Column_TicketScreen.dart';
-import '../Ticket Screen Comp/White_TicketScree.dart';
+import '../Ticket Screen Comp/Column_TicketScreen.dart';
+import '../Ticket Screen Comp/White_TicketScreen.dart';
 
 class MyTicketCard extends StatelessWidget {
   final Map<String, dynamic> ticket;
@@ -137,18 +137,18 @@ class MyTicketCard extends StatelessWidget {
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   // first half circel
-                  SizedBox(
+                  isColor==null?SizedBox(
                     height: AppLayout.getHeight(20),
                     width: AppLayout.getWidth(10),
                     child: DecoratedBox(
                       decoration: BoxDecoration(
-                          color: isColor == null ? Colors.white : Colors.black,
+                          color:  Colors.white,
                           borderRadius: BorderRadius.only(
                               topRight: Radius.circular(AppLayout.getWidth(10)),
                               bottomRight:
                                   Radius.circular(AppLayout.getWidth(10)))),
                     ),
-                  ),
+                  ):SizedBox(height: 20,),
                   Expanded(
                     child: Padding(
                       padding: EdgeInsets.only(
@@ -179,7 +179,7 @@ class MyTicketCard extends StatelessWidget {
                   ),
 
                   // second half circle
-                  SizedBox(
+                 isColor==null? SizedBox(
                     height: AppLayout.getHeight(20),
                     width: AppLayout.getWidth(10),
                     child: DecoratedBox(
@@ -190,7 +190,7 @@ class MyTicketCard extends StatelessWidget {
                               bottomLeft:
                                   Radius.circular(AppLayout.getWidth(10)))),
                     ),
-                  ),
+                  ):SizedBox(height: 20,),
                 ],
               ),
             ),
