@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:ticket_booking/screens/HomeScreen.dart';
 import 'package:ticket_booking/screens/SearchScreen.dart';
+import 'package:ticket_booking/screens/Ticket_Screen.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -17,7 +18,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Widget> _widgetOption = <Widget>[
     HomeScreen(),
     SearchScreen(),
-    const Text('Ticket page'),
+    TicketScreen(),
     const Text('Profile page')
   ];
   void selectedBottomNavigationBar(index) {
@@ -41,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
           type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(
-                icon: Icon(FluentIcons.home), label: 'Home'),
+                icon: Icon(FluentIcons.home,), label: 'Home'),
             BottomNavigationBarItem(
                 icon: Icon(FluentIcons.search), label: 'Search'),
             BottomNavigationBarItem(
