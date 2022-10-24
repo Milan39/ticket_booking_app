@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:ticket_booking/utils/Colors/Colors.dart';
+import 'package:ticket_booking/utils/app_Layout.dart';
 
 class FirstPartOfHomePage extends StatelessWidget {
   const FirstPartOfHomePage({super.key});
@@ -29,13 +30,18 @@ class FirstPartOfHomePage extends StatelessWidget {
           ],
         ),
         Container(
-          height: 60,
-          width: 60,
+          height: AppLayout.getHeight(60),
+          width: AppLayout.getWidth(60),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(AppLayout.getHeight(15)),
           ),
-          child: Center(child: Image.asset('assets/Images/logo.png',height: 55,width: 55,)),
+          child: Center(
+              child: Image.asset(
+            'assets/Images/logo.png',
+            height: AppLayout.getHeight(55),
+            width: AppLayout.getWidth(55),
+          )),
         )
       ],
     );

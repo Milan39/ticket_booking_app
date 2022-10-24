@@ -6,6 +6,8 @@ import 'package:ticket_booking/screens/HomeScreen.dart';
 import 'package:ticket_booking/screens/SearchScreen.dart';
 import 'package:ticket_booking/screens/Ticket_Screen.dart';
 
+import 'Profile_page.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
@@ -19,7 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
     HomeScreen(),
     SearchScreen(),
     TicketScreen(),
-    const Text('Profile page')
+    My_Profile_Screen()
   ];
   void selectedBottomNavigationBar(index) {
     setState(() {
@@ -48,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
             BottomNavigationBarItem(
                 icon: Icon(FluentIcons.ticket), label: 'Ticket'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.person_rounded), label: 'Profile')
+                icon: Icon(Icons.person), label: 'Profile')
           ]),
     );
   }
