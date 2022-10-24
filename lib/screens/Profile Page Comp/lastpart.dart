@@ -133,7 +133,9 @@ class _LastPart_ProfileScreenState extends State<LastPart_ProfileScreen> {
         Gap(AppLayout.getHeight(20)),
         // How to get more miles text
         InkWell(
-          onTap: (){},
+          onTap: (){
+            print('Tapped for more miles');
+          },
           child: Center(
             child: Text(
               'How to get more miles',

@@ -68,7 +68,9 @@ class FirstPart_ProfileScreen extends StatelessWidget {
         // Last Part "Edit"
         Gap(AppLayout.getHeight(60)),
         InkWell(
-          onTap: (){},
+          onTap: (){
+            print('Edit button is tapped');
+          },
           child: Text(
             'Edit',
             style: Styles.textstyle
