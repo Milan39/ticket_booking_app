@@ -30,15 +30,15 @@ class FirstPartOfHomePage extends StatelessWidget {
           ],
         ),
         Container(
-          height: AppLayout.getHeight(60),
-          width: AppLayout.getWidth(60),
+          height: AppLayout.getHeight(70),
+          width: AppLayout.getWidth(70),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(AppLayout.getHeight(15)),
           ),
           child: Center(
               child: Image.asset(
-            'assets/Images/logo.png',
+            'assets/Images/ticket.png',
             height: AppLayout.getHeight(55),
             width: AppLayout.getWidth(55),
           )),

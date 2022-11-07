@@ -24,7 +24,7 @@ class FirstPart_ProfileScreen extends StatelessWidget {
           ),
           child: Center(
               child: Image.asset(
-            'assets/Images/logo.png',
+            'assets/Images/ticket.png',
             height: AppLayout.getHeight(AppLayout.getHeight(70)),
             width: AppLayout.getWidth(AppLayout.getWidth(70)),
           )),
